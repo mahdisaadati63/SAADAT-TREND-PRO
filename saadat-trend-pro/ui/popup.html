@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STP Dashboard</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0B0F19;
+            color: #E8EDF5;
+            width: 320px;
+            margin: 0;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+        h2 {
+            text-align: center;
+            color: #FFD700;
+            margin-top: 0;
+            border-bottom: 1px solid #2A3346;
+            padding-bottom: 10px;
+        }
+        .stat-box {
+            background: #141B2B;
+            border: 1px solid #2A3346;
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .stat-label {
+            font-size: 14px;
+            color: #8892A8;
+        }
+        .stat-value {
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .win { color: #00E676; }
+        .loss { color: #FF5252; }
+
+        .dashboard-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background: linear-gradient(135deg, #FFD700, #FFA000);
+            color: #000;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        .dashboard-btn:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>⚡ SAADAT TREND PRO</h2>
+
+    <div class="stat-box">
+        <span class="stat-label">WIN RATE</span>
+        <span class="stat-value" id="winRate">--%</span>
+    </div>
+
+    <div class="stat-box">
+        <span class="stat-label">TOTAL SIGNALS</span>
+        <span class="stat-value" id="totalSignals">0</span>
+    </div>
+
+    <div class="stat-box">
+        <span class="stat-label">✓ WINS</span>
+        <span class="stat-value win" id="wins">0</span>
+    </div>
+
+    <div class="stat-box">
+        <span class="stat-label">✕ LOSSES</span>
+        <span class="stat-value loss" id="losses">0</span>
+    </div>
+
+    <button class="dashboard-btn" id="fullDashboardBtn">OPEN FULL DASHBOARD</button>
+
+    <script src="popup.js"></script>
+</body>
+</html>

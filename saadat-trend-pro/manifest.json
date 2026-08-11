@@ -1,0 +1,61 @@
+{
+  "manifest_version": 3,
+  "name": "SAADAT TREND PRO",
+  "version": "1.0.0",
+  "description": "Intelligent Price Action & ICT Signal Engine for Quotex",
+  "author": "SAADAT",
+  "icons": {
+    "16": "ui/icon16.png",
+    "48": "ui/icon48.png",
+    "128": "ui/icon128.png"
+  },
+  "action": {
+    "default_popup": "ui/popup.html",
+    "default_title": "Open SAADAT TREND PRO Dashboard"
+  },
+  "background": {
+    "service_worker": "background/service-worker.js"
+  },
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "*://*.quotex.com/*",
+    "*://*.quotex.io/*",
+    "*://*.qxbroker.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.quotex.com/*",
+        "*://*.quotex.io/*",
+        "*://*.qxbroker.com/*"
+      ],
+      "css": ["content/chart-overlay.css"],
+      "js": [
+        "storage/database.js",
+        "analysis/moving-average.js",
+        "analysis/support-resistance.js",
+        "analysis/market-structure.js",
+        "analysis/price-action.js",
+        "signal/scoring-engine.js",
+        "signal/validation-engine.js",
+        "signal/signal-engine.js",
+        "performance/result-engine.js",
+        "performance/statistics-engine.js",
+        "content/candle-engine.js",
+        "content/chart-overlay.js",
+        "content/chart-reader.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["ui/*"],
+      "matches": ["*://*.quotex.com/*", "*://*.quotex.io/*", "*://*.qxbroker.com/*"]
+    }
+  ]
+}
