@@ -19,7 +19,8 @@
   "permissions": [
     "activeTab",
     "storage",
-    "scripting"
+    "scripting",
+    "notifications"
   ],
   "host_permissions": [
     "*://*.quotex.com/*",
@@ -49,12 +50,12 @@
         "content/chart-overlay.js",
         "content/chart-reader.js"
       ],
-      "run_at": "document_idle"
+      "run_at": "document_start"
     }
   ],
   "web_accessible_resources": [
     {
-      "resources": ["ui/*"],
+      "resources": ["ui/*", "content/injected-websocket.js"],
       "matches": ["*://*.quotex.com/*", "*://*.quotex.io/*", "*://*.qxbroker.com/*"]
     }
   ]
