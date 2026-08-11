@@ -126,7 +126,5 @@ class ChartReader {
     }
 }
 
-// مقداردهی اولیه پس از لود صفحه
-setTimeout(() => {
-    window.STP_ChartReader = new ChartReader();
-}, 3000);
+// تزریق فوری به محض لود شدن اسکریپت
+window.STP_ChartReader = new ChartReader();

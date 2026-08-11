@@ -6,8 +6,8 @@
     const OriginalWebSocket = window.WebSocket;
 
     // Monkey-patching WebSocket
-    window.WebSocket = function(url, protocols) {
-        const ws = new OriginalWebSocket(url, protocols);
+    window.WebSocket = function(...args) {
+        const ws = new OriginalWebSocket(...args);
 
         // Listen for messages received from the server
         ws.addEventListener('message', function(event) {

@@ -1,0 +1,38 @@
+name: SAADAT TREND PRO CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: Validate Manifest.json
+      run: |
+        npm install -g web-ext
+        # web-ext lint بررسی می‌کند که فایل manifest استاندارد باشد
+        web-ext lint -s saadat-trend-pro/
+
+    - name: Build Extension (Zip)
+      run: |
+        cd saadat-trend-pro
+        zip -r ../SAADAT_TREND_PRO.zip *
+        cd ..
+
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: SAADAT_TREND_PRO_Extension
+        path: SAADAT_TREND_PRO.zip
