@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پرامپت جامع توسعه افزونه SAADAT TREND PRO</title>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0B0F19;
+            --secondary: #141B2B;
+            --accent-gold: #FFD700;
+            --accent-green: #00E676;
+            --accent-red: #FF5252;
+            --text-main: #E8EDF5;
+            --text-dim: #8892A8;
+            --border-color: #2A3346;
+            --card-bg: #111927;
+            --shadow: 0 8px 32px rgba(0,0,0,0.6);
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Vazirmatn', Tahoma, sans-serif;
+            background-color: var(--primary);
+            color: var(--text-main);
+            padding: 30px 20px;
+            line-height: 1.9;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--secondary);
+            border-radius: 24px;
+            padding: 40px 35px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+        h1 {
+            font-size: 2.6rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--accent-gold), #FFA000);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+        .sub-title {
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 1.1rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 25px;
+            margin-bottom: 30px;
+        }
+        .badge-ver {
+            background: var(--accent-gold);
+            color: #000;
+            padding: 4px 16px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-top: 5px;
+        }
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-top: 45px;
+            margin-bottom: 20px;
+            padding-right: 15px;
+            border-right: 6px solid var(--accent-gold);
+            color: #fff;
+        }
+        h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-top: 30px;
+            margin-bottom: 12px;
+            color: #CCD6F6;
+        }
+        h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-top: 20px;
+            margin-bottom: 8px;
+            color: var(--accent-gold);
+        }
+        p, li {
+            color: var(--text-main);
+            font-weight: 300;
+        }
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 20px 25px;
+            margin: 18px 0;
+            transition: 0.2s ease;
+        }
+        .card:hover {
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.05);
+        }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        @media (max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } }
+        .tag {
+            display: inline-block;
+            background: #1F2A3F;
+            color: var(--accent-gold);
+            padding: 0 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-left: 5px;
+            border: 1px solid #2A3346;
+        }
+        .tag-green { background: #003D2A; color: var(--accent-green); border-color: #005C3E; }
+        .tag-red { background: #3D0A0A; color: var(--accent-red); border-color: #6B1515; }
+        .code-block {
+            background: #0A0E17;
+            border: 1px solid #1E2838;
+            border-radius: 12px;
+            padding: 18px 22px;
+            font-family: 'Courier New', monospace;
+            direction: ltr;
+            text-align: left;
+            color: #B0C4DE;
+            overflow-x: auto;
+            margin: 15px 0;
+            font-size: 0.9rem;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+        .code-block span { color: var(--accent-gold); }
+        ul, ol { padding-right: 25px; margin: 10px 0; }
+        li { margin-bottom: 8px; }
+        .highlight-box {
+            background: rgba(255, 215, 0, 0.08);
+            border-right: 4px solid var(--accent-gold);
+            padding: 16px 22px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .important-rule {
+            background: rgba(255, 82, 82, 0.1);
+            border-right: 4px solid var(--accent-red);
+            padding: 16px 22px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .table-wrap {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #0F172A;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        th {
+            background: var(--accent-gold);
+            color: #000;
+            font-weight: 700;
+            padding: 12px 15px;
+            text-align: center;
+        }
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--border-color);
+            text-align: center;
+        }
+        tr:last-child td { border-bottom: none; }
+        .toc {
+            background: #0A0F1A;
+            padding: 25px 30px;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 40px;
+        }
+        .toc ul {
+            columns: 2 220px;
+            list-style: none;
+            padding: 0;
+        }
+        .toc li {
+            margin-bottom: 6px;
+            padding: 4px 10px;
+            border-radius: 4px;
+            transition: 0.1s;
+        }
+        .toc li:hover { background: #1F2A3F; }
+        .toc a { color: var(--text-main); text-decoration: none; }
+        .toc a:hover { color: var(--accent-gold); }
+        hr { border: 1px solid var(--border-color); margin: 40px 0; }
+        .footer-note {
+            text-align: center;
+            color: var(--text-dim);
+            margin-top: 50px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 30px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- HEADER -->
+    <h1>⚡ SAADAT TREND PRO</h1>
+    <div class="sub-title">
+        <span class="badge-ver">STP v1.0</span>
+        <span style="display:block; margin-top:8px;">پرامپت جامع معماری فنی، قوانین تحلیلی و چالش‌های پیاده‌سازی</span>
+        <span style="display:block; font-size:0.9rem; color:#6B7A93;">Intelligent Price Action + ICT Signal Engine — Chrome Extension (Manifest V3)</span>
+    </div>
+
+    <!-- TOC -->
+    <div class="toc">
+        <h3 style="margin-top:0; text-align:center; border-bottom:1px solid #2A3346; padding-bottom:10px;">📑 فهرست محتوا (راهنمای توسعه)</h3>
+        <ul>
+            <li><a href="#sec1">۱. هدف اصلی و فلسفه (کیفیت بر کمیت)</a></li>
+            <li><a href="#sec2">۲. قوانین طلایی (غیرقابل‌چشم‌پوشی)</a></li>
+            <li><a href="#sec3">۳. معماری کلی و موتورهای سیستم</a></li>
+            <li><a href="#sec4">۴. موتورهای تحلیلی (جزئیات فنی)</a></li>
+            <li><a href="#sec5">۵. فرآیند تولید سیگنال (گام‌به‌گام)</a></li>
+            <li><a href="#sec6">۶. سیستم امتیازدهی و تأیید</a></li>
+            <li><a href="#sec7">۷. مدیریت عملکرد، بک‌تست و انطباق</a></li>
+            <li><a href="#sec8">۸. رابط کاربری (UI/UX) و نمایش چارت</a></li>
+            <li><a href="#sec9">۹. نسخه‌بندی (MVP، دوم، سوم)</a></li>
+            <li><a href="#sec10">۱۰. چالش‌های پیاده‌سازی (نکات فنی ویژه)</a></li>
+            <li><a href="#sec11">۱۱. نکات امنیتی، عملکرد و بهینه‌سازی</a></li>
+        </ul>
+    </div>
+
+    <!-- ==================== SECTION 1 ==================== -->
+    <h2 id="sec1">۱. هدف اصلی و فلسفه (QUALITY OVER QUANTITY)</h2>
+    <div class="card">
+        <p><strong>هدف:</strong> ساخت افزونه‌ای برای تحلیل نمودارهای <strong>Quotex</strong> که بدون انجام معامله خودکار، خروجی <strong>CALL</strong>، <strong>PUT</strong> یا <strong>WAIT</strong> تولید کند. سیستم باید ترکیبی از Price Action، ICT، ساختار بازار، حمایت/مقاومت، ترندلاین، نقدینگی، FVG، Order Block، الگوهای کندلی، میانگین‌های متحرک، اعداد گرد و تحلیل چند-تایم‌فریمه باشد.</p>
+        <div class="highlight-box">
+            <strong>🎯 هسته‌ی اصلی:</strong> تولید سیگنال‌های کمتر اما با کیفیت بالاتر. اگر Setup کامل نیست &rarr; <strong>WAIT</strong>. حتی اگر چند شرط کوچک برقرار باشد، در صورت نبود تأییدیه کافی، سیگنال صادر نمی‌شود.
+        </div>
+    </div>
+
+    <!-- ==================== SECTION 2 ==================== -->
+    <h2 id="sec2">۲. قوانین طلایی (غیرقابل‌چشم‌پوشی)</h2>
+    <div class="grid-2">
+        <div class="card">
+            <h4>⛔ کندل جاری (در حال تشکیل)</h4>
+            <p>کندل در حال تشکیل هرگز به عنوان کندل تأییدشده در نظر گرفته نمی‌شود. در زمان تشکیل، فقط هایلایت <span style="color:var(--accent-gold);">زرد</span> می‌شود و سیگنال قطعی <strong>ممنوع</strong> است.</p>
+        </div>
+        <div class="card">
+            <h4>🚫 عدم بازنقاشی (No Repainting)</h4>
+            <p>سیگنال پس از صدور، <strong>تغییرناپذیر (Immutable)</strong> است. هیچ کندل آینده‌ای نباید وارد محاسبه شود. سیگنال CALL هرگز بعداً به PUT تبدیل نمی‌شود.</p>
+        </div>
+        <div class="card">
+            <h4>🧭 ممنوعیت خلاف روند (Counter-Trend)</h4>
+            <p>اگر تایم‌فریم بالاتر (۱۵M) صعودی باشد، سیستم فقط CALL و اگر نزولی باشد فقط PUT بررسی می‌کند. این حالت فقط در نسخه Advanced قابل فعال‌سازی است.</p>
+        </div>
+        <div class="card">
+            <h4>📝 ثبت کامل همه سیگنال‌ها</h4>
+            <p>همه سیگنال‌ها (حتی باخت‌ها) باید ثبت شوند. هدف برنامه‌نویس نباید دستکاری شرایط برای نمایش نرخ برد بالا باشد. <strong>هیچ LOSS نباید مخفی شود.</strong></p>
+        </div>
+    </div>
+
+    <!-- ==================== SECTION 3 ==================== -->
+    <h2 id="sec3">۳. معماری کلی و زنجیره‌ی موتورها</h2>
+    <div class="card">
+        <p>داده‌ها از لایه‌های زیر عبور می‌کنند و هر لایه خروجی را به لایه بعدی می‌دهد:</p>
+        <div class="code-block" style="direction:rtl; text-align:right; font-family:'Vazirmatn', sans-serif;">
+            DATA ENGINE (دریافت OHLCV)
+            &darr;
+            CANDLE ENGINE (ساخت آبجکت کندل با بدنه، سایه‌ها، جهت)
+            &darr;
+            MARKET STRUCTURE ENGINE (HH/HL, LH/LL, BOS, CHoCH, روند)
+            &darr;
+            S/R ENGINE (حمایت/مقاومت ایستا و پویا)
+            &darr;
+            ICT ENGINE (نقدینگی، FVG، Order Block، Breaker، Premium/Discount)
+            &darr;
+            PRICE ACTION ENGINE (الگوهای کندلی: همر، شوتینگ استار، اینگالفینگ و...)
+            &darr;
+            MULTI TIMEFRAME ENGINE (هماهنگی ۱M، ۲M، ۵M، ۱۵M و اختیاری ۳۰M، ۱H)
+            &darr;
+            SIGNAL SCORING ENGINE (امتیازدهی وزنی از ۱۰۰)
+            &darr;
+            SIGNAL VALIDATION ENGINE (بررسی آستانه و تأییدیه ساختاری)
+            &darr;
+            SIGNAL OUTPUT (CALL / PUT / WAIT)
+            &darr;
+            RESULT ENGINE (تعیین WIN/LOSS/DRAW پس از Expiry)
+            &darr;
+            PERFORMANCE ENGINE (آمار، نرخ برد، رتبه‌بندی)
+            &darr;
+            ADAPTIVE ANALYSIS (بهینه‌سازی وزن‌ها در نسخه‌های بعدی)
+        </div>
+    </div>
+
+    <!-- ==================== SECTION 4 ==================== -->
+    <h2 id="sec4">۴. موتورهای تحلیلی (جزئیات فنی)</h2>
+    
+    <h3>۴-۱. موتور داده و کندل (Data & Candle)</h3>
+    <div class="card">
+        <p><strong>داده‌های ورودی:</strong> Open, High, Low, Close, Timestamp, Volume (در صورت وجود، ولی اگر نبود، حجم جعلی تولید نمی‌شود).</p>
+        <p><strong>محاسبات کندل:</strong></p>
+        <ul>
+            <li><code>body = abs(close - open)</code></li>
+            <li><code>range = high - low</code></li>
+            <li><code>upperWick = high - max(open, close)</code></li>
+            <li><code>lowerWick = min(open, close) - low</code></li>
+        </ul>
+        <p><strong>نکته:</strong> کندل جاری (در حال تشکیل) با رنگ <span style="color:var(--accent-gold);">زرد (#FFD700)</span> هایلایت می‌شود و پس از بسته شدن، تحلیل نهایی صورت می‌گیرد.</p>
+    </div>
+
+    <h3>۴-۲. موتور ساختار بازار (Market Structure)</h3>
+    <div class="card">
+        <ul>
+            <li><strong>روند صعودی:</strong> HH (قله بالاتر) + HL (دره بالاتر)</li>
+            <li><strong>روند نزولی:</strong> LH (قله پایین‌تر) + LL (دره پایین‌تر)</li>
+            <li><strong>BOS (Break of Structure):</strong> شکست معتبر یک سوئینگ مهم</li>
+            <li><strong>CHoCH (Change of Character):</strong> تغییر ساختار در جهت مخالف روند قبلی</li>
+            <li><strong>تشخیص سوئینگ‌ها:</strong> با پارامترهای قابل تنظیم (Swing Lookback، Minimum Swing Distance، Minimum Price Displacement)</li>
+        </ul>
+    </div>
+
+    <h3>۴-۳. موتور حمایت/مقاومت (S/R) و ترندلاین</h3>
+    <div class="card">
+        <p><strong>سطوح ایستا:</strong> High/Low روزانه، سشن، سوئینگ‌ها و قله/دره قبلی.</p>
+        <p><strong>سطوح پویا:</strong> MA6, MA10, MA21, MA50 (به عنوان حمایت/مقاومت پویا و تأیید روند).</p>
+        <p><strong>قدرت سطوح:</strong> بر اساس تعداد برخورد، واکنش (Rejection)، فاصله برخوردها، تازگی، هم‌زمانی با اعداد گرد، FVG و Order Block محاسبه می‌شود.</p>
+        <p><strong>ترندلاین:</strong> به صورت خودکار از سوئینگ‌ها ترسیم می‌شود. حداقل ۲ برخورد، ترجیحاً ۳+ برخورد.</p>
+    </div>
+
+    <h3>۴-۴. موتور ICT (نقدینگی، FVG، Order Block)</h3>
+    <div class="card">
+        <ul>
+            <li><strong>نقدینگی (Liquidity):</strong> تشخیص Equal High/Low، قله/دره قبلی به عنوان نقاط نقدینگی. <strong>Liquidity Sweep</strong> به تنهایی سیگنال نیست، اما یک تأییدیه قوی محسوب می‌شود.</li>
+            <li><strong>FVG:</strong> Bullish: High کندل ۱ &lt; Low کندل ۳. Bearish: Low کندل ۱ &gt; High کندل ۳. در صورت Retest، بررسی مجدد می‌شود.</li>
+            <li><strong>Order Block:</strong> آخرین کندل مخالف قبل از حرکت شدید (Displacement). در صورت همراهی با BOS، نقدینگی و Displacement معتبرتر است.</li>
+        </ul>
+    </div>
+
+    <h3>۴-۵. موتور پرایس اکشن و الگوهای کندلی</h3>
+    <div class="card">
+        <p>الگوهای قابل تشخیص: Doji, Hammer, Inverted Hammer, Shooting Star, Hanging Man, Bullish/Bearish Engulfing, Morning/Evening Star, Pin Bar, Inside Bar, Tweezer Top/Bottom.</p>
+        <div class="important-rule">
+            <strong>⚠️ تأکید مهم:</strong> الگوی کندلی به تنهایی سیگنال نیست. مثلاً <strong>Hammer</strong> وسط رنج = WAIT، ولی <strong>Hammer</strong> روی حمایت + Liquidity Sweep = پتانسیل CALL.
+        </div>
+    </div>
+
+    <h3>۴-۶. اعداد گرد (Round Numbers)</h3>
+    <div class="card">
+        <p>سیستم باید سطوح روانشناختی را تشخیص دهد: Major Round (۰۰)، Half Round (۵۰)، Minor Round (۰۰۰/۵۰۰). فاصله قیمت تا این سطوح محاسبه می‌شود.</p>
+    </div>
+
+    <!-- ==================== SECTION 5 ==================== -->
+    <h2 id="sec5">۵. فرآیند تولید سیگنال (گام‌به‌گام)</h2>
+    <div class="card">
+        <ol>
+            <li><strong>شروع کندل جدید:</strong> هایلایت زرد روی کندل در حال تشکیل.</li>
+            <li><strong>بسته شدن کندل:</strong> موتورهای تحلیل (ساختار، پرایس اکشن، ICT، S/R) اجرا می‌شوند.</li>
+            <li><strong>تعیین Bias اصلی:</strong> ابتدا ۱۵M، سپس ۵M، ۲M و نهایتاً ۱M بررسی می‌شود. اگر هم‌جهت بودند، Bias مشخص می‌شود وگرنه <strong>WAIT</strong>.</li>
+            <li><strong>محاسبه امتیاز (Score):</strong> جمع امتیازات وزنی (جدول بخش ۶).</li>
+            <li><strong>بررسی آستانه (Threshold):</strong> پیش‌فرض ۸۰ (قابل تغییر توسط کاربر بین ۶۰ تا ۹۵).</li>
+            <li><strong>بررسی تأییدیه ساختاری:</strong> حداقل یکی از موارد BOS، CHoCH، Liquidity Sweep، Strong Rejection یا Break & Retest باید وجود داشته باشد.</li>
+            <li><strong>صدور خروجی:</strong> در صورت احراز همه شرایط &rarr; <strong>CALL</strong> یا <strong>PUT</strong> همراه با امتیاز و کیفیت، در غیر این صورت <strong>WAIT</strong>.</li>
+            <li><strong>قفل شدن (Signal Lock):</strong> پنجره‌ی تأیید کوتاه (۱۵ ثانیه)، سپس قفل شده و تغییر نمی‌کند.</li>
+            <li><strong>نمایش روی چارت:</strong> فلش سبز ▲ زیر کندل (CALL) یا فلش قرمز ▼ بالای کندل (PUT).</li>
+            <li><strong>ثبت در تاریخچه:</strong> با شناسه یکتا (<code>PAIR_TIMESTAMP_TIMEFRAME_DIRECTION</code>) در IndexedDB.</li>
+            <li><strong>انقضا (Expiry):</strong> پیش‌فرض ۱ دقیقه (قابل تنظیم تا ۵M).</li>
+            <li><strong>ثبت نتیجه:</strong> مقایسه قیمت ورودی و قیمت انقضا &rarr; <strong>WIN</strong> / <strong>LOSS</strong> / <strong>DRAW</strong>.</li>
+            <li><strong>ماندگاری روی چارت:</strong> حداقل ۸ ساعت روی نمودار باقی می‌ماند.</li>
+        </ol>
+    </div>
+
+    <!-- ==================== SECTION 6 ==================== -->
+    <h2 id="sec6">۶. سیستم امتیازدهی و تأیید</h2>
+    <div class="card">
+        <div class="table-wrap">
+            <table>
+                <tr><th>عامل تحلیلی</th><th>امتیاز</th></tr>
+                <tr><td>هم‌جهتی تایم‌فریم‌ها (MTF Alignment)</td><td>۲۰</td></tr>
+                <tr><td>ساختار بازار (Market Structure)</td><td>۱۵</td></tr>
+                <tr><td>حمایت/مقاومت (Support/Resistance)</td><td>۱۵</td></tr>
+                <tr><td>شکار نقدینگی (Liquidity Sweep)</td><td>۱۵</td></tr>
+                <tr><td>پرایس اکشن (Price Action / Pattern)</td><td>۱۰</td></tr>
+                <tr><td>FVG</td><td>۸</td></tr>
+                <tr><td>Order Block</td><td>۸</td></tr>
+                <tr><td>ترندلاین (Trendline)</td><td>۵</td></tr>
+                <tr><td>تأیید میانگین متحرک (MA Confirmation)</td><td>۴</td></tr>
+                <tr><td>عدد گرد (Round Number)</td><td>۵</td></tr>
+            </table>
+        </div>
+        <p><strong>مجموع خام:</strong> ۱۰۵ &rarr; <strong>نرمال‌سازی به ۱۰۰</strong>.</p>
+        <p><strong>کیفیت سیگنال:</strong></p>
+        <ul>
+            <li>۰-۵۹ = WAIT</li>
+            <li>۶۰-۶۹ = WEAK (ضعیف)</li>
+            <li>۷۰-۷۹ = MEDIUM (متوسط)</li>
+            <li>۸۰-۸۹ = STRONG (قوی)</li>
+            <li>۹۰-۱۰۰ = VERY STRONG (بسیار قوی)</li>
+        </ul>
+        <div class="important-rule">
+            <strong>فیلتر کیفیت بالا:</strong> هیچ سیگنالی با امتیاز کمتر از آستانه صادر نمی‌شود. همچنین امتیاز بالا به تنهایی کافی نیست و حتماً باید یکی از تأییدیه‌های ساختاری (BOS, CHoCH, Liquidity Sweep, Strong Rejection, Break & Retest) وجود داشته باشد.
+        </div>
+    </div>
+
+    <!-- ==================== SECTION 7 ==================== -->
+    <h2 id="sec7">۷. مدیریت عملکرد، بک‌تست و انطباق</h2>
+    <div class="grid-2">
+        <div class="card">
+            <h4>📊 موتور عملکرد (Performance)</h4>
+            <ul>
+                <li>تعداد کل سیگنال‌ها، WIN، LOSS، DRAW</li>
+                <li>نرخ برد کلی، نرخ برد CALL و PUT جداگانه</li>
+                <li>بهترین و بدترین امتیاز، میانگین امتیاز</li>
+                <li>رکورد بیشترین برد و باخت متوالی</li>
+                <li>عملکرد بر اساس جفت‌ارز، ساعت معاملاتی، نوع ستاپ و بازه امتیازی</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h4>⏳ بک‌تست و Walk-Forward</h4>
+            <ul>
+                <li>آزمایش روی داده‌های تاریخی با پارامترهای قابل تنظیم (Pair, Date Range, Expiry, Minimum Score).</li>
+                <li>تقسیم داده به Training (تنظیم پارامتر) و Validation (بررسی روی داده ندیده).</li>
+                <li>جلوگیری از Overfitting: حداقل حجم نمونه برای هر ستاپ = ۱۰۰.</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h4>🧠 موتور انطباق‌پذیر (Adaptive)</h4>
+            <ul>
+                <li>در نسخه اول <strong>خاموش (OFF)</strong> است.</li>
+                <li>پس از جمع‌آوری حداقل ۵۰۰ سیگنال قابل فعال‌سازی است.</li>
+                <li>وزن‌ها را بر اساس داده واقعی تنظیم می‌کند، اما همه تغییرات ثبت، قابل برگشت و قابل مشاهده هستند.</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h4>⚠️ هشدارهای آماری</h4>
+            <ul>
+                <li>اگر حجم نمونه کم باشد (مثلاً ۱۰ سیگنال با نرخ برد ۹۰٪)، هشدار <strong>LOW SAMPLE</strong> نمایش داده می‌شود.</li>
+                <li>اگر عملکرد در ۵۰ سیگنال آخر افت چشمگیری داشت، هشدار <strong>PERFORMANCE WARNING</strong> صادر می‌شود.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ==================== SECTION 8 ==================== -->
+    <h2 id="sec8">۸. رابط کاربری (UI/UX) و نمایش چارت</h2>
+    <div class="card">
+        <h4>🖥️ پنل کوچک روی چارت (Minimal Panel)</h4>
+        <div class="code-block" style="direction:rtl; text-align:right;">
+┌────────────────────────┐
+│ SAADAT TREND PRO       │
+├────────────────────────┤
+│ WIN RATE       78.4%   │
+│ SIGNALS          102   │
+│ ✓ WIN             80   │
+│ ✕ LOSS            22   │
+│ = DRAW             0   │
+│ CALL              54   │
+│ PUT               48   │
+│ SCORE AVG        81.6  │
+└────────────────────────┘
+        </div>
+        <h4>🎨 نمایش سیگنال‌ها روی چارت</h4>
+        <ul>
+            <li><strong>کندل در حال تحلیل:</strong> هایلایت زرد <span style="color:var(--accent-gold);">(#FFD700)</span>.</li>
+            <li><strong>CALL:</strong> فلش سبز ▲ در زیر کندل + هایلایت نیمه‌شفاف سبز.</li>
+            <li><strong>PUT:</strong> فلش قرمز ▼ در بالای کندل + هایلایت نیمه‌شفاف قرمز.</li>
+            <li><strong>تاریخچه:</strong> هر سیگنال به همراه نتیجه (✓ WIN / ✕ LOSS) حداقل ۸ ساعت روی چارت باقی می‌ماند.</li>
+        </ul>
+        <h4>🔔 هشدارها (Alert)</h4>
+        <ul>
+            <li>نمایش دیداری (Visual) روی چارت.</li>
+            <li>صدای قابل تنظیم (Sound).</li>
+            <li>اعلان مرورگر (Browser Notification) قابل فعال/غیرفعال‌سازی.</li>
+        </ul>
+        <h4>📋 اسکنر (Scanner)</h4>
+        <p>همه جفت‌ارزهای باز در کوئوتکس را اسکن کرده و به صورت لحظه‌ای وضعیت آنها را نمایش می‌دهد: <code>EUR/USD: WAIT</code>، <code>GBP/USD: CALL 86</code>، <code>AUD/USD: PUT 82</code> و ...</p>
+    </div>
+
+    <!-- ==================== SECTION 9 ==================== -->
+    <h2 id="sec9">۹. نسخه‌بندی (MVP، دوم، سوم)</h2>
+    <div class="grid-2">
+        <div class="card">
+            <h4>✅ نسخه MVP (حداقل محصول قابل قبول)</h4>
+            <p>شامل ۳۶ مورد حیاتی از جمله: دریافت داده کندل، تحلیل ۱M تا ۱۵M، تشخیص روند و ساختار، حمایت/مقاومت ایستا و MA، الگوهای پایه (هامر، شوتینگ استار، اینگالفینگ)، BOS، Liquidity Sweep، اعداد گرد، امتیازدهی، خروجی CALL/PUT/WAIT، هایلایت زرد، فلش‌های سبز/قرمز، موتور برد/باخت، پنل عملکرد، تاریخچه ۸ ساعته و IndexedDB.</p>
+        </div>
+        <div class="card">
+            <h4>🚀 نسخه دوم</h4>
+            <p>افزودن: FVG، Order Block، CHoCH، Premium/Discount، Ichimoku، اسکنر پیشرفته، بک‌تست کامل، داشبورد حرفه‌ای، رتبه‌بندی جفت‌ارزها، زمان‌ها و ستاپ‌ها.</p>
+        </div>
+        <div class="card">
+            <h4>🧬 نسخه سوم</h4>
+            <p>افزودن: موتور انطباق‌پذیر (Adaptive)، Walk-Forward Testing، اعتبارسنجی آماری، بهینه‌سازی خودکار وزن‌ها، مقایسه استراتژی‌ها و تشخیص رژیم بازار (Market Regime Detection).</p>
+        </div>
+    </div>
+
+    <!-- ==================== SECTION 10 ==================== -->
+    <h2 id="sec10">۱۰. چالش‌های پیاده‌سازی (نکات فنی ویژه)</h2>
+    <div class="card">
+        <p>این بخش شامل مهم‌ترین چالش‌های فنی و راه‌حل‌های پیشنهادی برای توسعه‌دهندگان است:</p>
+        
+        <h4>📌 ۱. استخراج داده از چارت کوئوتکس (Chart Reading)</h4>
+        <ul>
+            <li><strong>چالش:</strong> کوئوتکس معمولاً از <strong>Canvas</strong> یا <strong>SVG</strong> برای رسم کندل‌ها استفاده می‌کند و داده‌ها مستقیماً در DOM به صورت متنی در دسترس نیستند.</li>
+            <li><strong>راه‌حل:</strong> از ترکیب <code>MutationObserver</code> برای نظارت بر تغییرات DOM و اسکرپینگ دقیق از روی المان‌های گرافیکی یا رهگیری درخواست‌های شبکه (WebSocket/HTTP) استفاده شود. در صورت امکان، از <code>content script</code> برای دسترسی به متغیرهای داخلی پنجره (window object) استفاده کنید.</li>
+        </ul>
+
+        <h4>📌 ۲. ساخت تایم‌فریم‌های بالاتر با تجمیع (Aggregation)</h4>
+        <ul>
+            <li><strong>چالش:</strong> اگر کوئوتکس داده‌ی ۱۵ دقیقه را به صورت مستقیم در اختیار نگذارد، موتور باید خودش آن را بسازد.</li>
+            <li><strong>راه‌حل:</strong> با استفاده از کندل‌های ۱ دقیقه‌ای، تایم‌فریم‌های ۲، ۵ و ۱۵ دقیقه را <strong>تجمیع (Aggregation)</strong> کنید. برای هر بازه، Open اولین، Close آخرین، High ماکزیمم و Low مینیمم را محاسبه کنید.</li>
+        </ul>
+
+        <h4>📌 ۳. مدیریت تغییر جفت‌ارز (Symbol Change)</h4>
+        <ul>
+            <li><strong>چالش:</strong> وقتی کاربر در کوئوتکس جفت‌ارز را عوض می‌کند، داده‌های قبلی نباید با داده‌های جدید مخلوط شوند.</li>
+            <li><strong>راه‌حل:</strong> یک <strong>شناسه جلسه (Session ID)</strong> برای هر جفت‌ارز در نظر بگیرید. هنگام تغییر نماد، همه آبجکت‌های تحلیلی، کش‌ها و هایلایت‌های قبلی را پاک کنید و موتورها را ریست کنید.</li>
+        </ul>
+
+        <h4>📌 ۴. رندرینگ دقیق روی چارت (Canvas/SVG)</h4>
+        <ul>
+            <li><strong>چالش:</strong> در هنگام زوم، اسکرول یا تغییر اندازه پنجره، فلش‌ها و هایلایت‌ها باید دقیقاً روی کندل صحیح باقی بمانند.</li>
+            <li><strong>راه‌حل:</strong> به جای مکان‌های پیکسلی ثابت، مختصات را بر اساس <strong>شاخص کندل (Candle Index)</strong> و <strong>قیمت (Price)</strong> محاسبه کنید و هر بار با رویدادهای <code>resize</code> یا <code>scroll</code> (با throttle/debounce) موقعیت‌ها را مجدداً محاسبه کنید. استفاده از <strong>SVG</strong> با <code>viewBox</code> یا <strong>Canvas</strong> با تابع <code>requestAnimationFrame</code> برای روان‌تر شدن پیشنهاد می‌شود.</li>
+        </ul>
+
+        <h4>📌 ۵. زمان و منطقه زمانی (Timezone & Expiry)</h4>
+        <ul>
+            <li><strong>چالش:</strong> زمان انقضا (Expiry) و تطابق آن با سرور کوئوتکس.</li>
+            <li><strong>راه‌حل:</strong> تمام تایم‌استمپ‌ها را به <strong>UTC</strong> ذخیره کنید. زمان انقضا را بر اساس Timestamp کندل ورودی محاسبه کنید و برای نمایش به کاربر، زمان محلی مرورگر را در نظر بگیرید. (مثلاً ۱ دقیقه بعد از بسته شدن کندل).</li>
+        </ul>
+
+        <h4>📌 ۶. مدیریت داده‌های گپ‌خورده (Data Gaps)</h4>
+        <ul>
+            <li><strong>چالش:</strong> در تعطیلات آخر هفته یا لحظات کم‌نقدینگی، ممکن است داده‌ها با فاصله (Gap) مواجه شوند.</li>
+            <li><strong>راه‌حل:</strong> اگر فاصله زمانی بین دو کندل بیشتر از حد معمول (مثلاً ۵ دقیقه در تایم‌فریم ۱M) بود، سیستم نباید به زور تحلیل کند و باید وضعیت <strong>DATA ERROR</strong> را نمایش دهد.</li>
+        </ul>
+
+        <h4>📌 ۷. استفاده از Web Workers برای محاسبات سنگین</h4>
+        <ul>
+            <li><strong>چالش:</strong> تحلیل همزمان چند تایم‌فریم و محاسبه سطوح مختلف می‌تواند ترد اصلی مرورگر (UI Thread) را قفل کند.</li>
+            <li><strong>راه‌حل:</strong> موتورهای سنگین مانند بک‌تست، اسکنر چندجفت‌ارزی یا تحلیل ساختار در یک <strong>Web Worker</strong> اجرا شوند تا رابط کاربری همیشه روان بماند.</li>
+        </ul>
+
+        <h4>📌 ۸. استراتژی کش (Caching) برای محاسبات تکراری</h4>
+        <ul>
+            <li><strong>چالش:</strong> هر بار که یک کندل جدید می‌آید، نباید کل ساختار بازار از اول محاسبه شود.</li>
+            <li><strong>راه‌حل:</strong> نتایج محاسباتی (مانند سطوح حمایت/مقاومت، ترندلاین‌ها و سوئینگ‌ها) را <strong>کش</strong> کنید و فقط با ورود کندل جدید، آن را به‌روزرسانی (Incremental Update) کنید. از <code>WeakMap</code> یا <code>Map</code> با کلیدهای مناسب استفاده کنید.</li>
+        </ul>
+
+        <h4>📌 ۹. تشخیص سشن‌های معاملاتی (Session Logic)</h4>
+        <ul>
+            <li><strong>چالش:</strong> تحلیل نقدینگی و ساختار بازار در سشن‌های لندن، نیویورک و توکیو متفاوت است.</li>
+            <li><strong>راه‌حل:</strong> یک ماژول زمانی اضافه کنید که بر اساس ساعت سرور (یا UTC) سشن فعلی را تشخیص دهد و در تحلیل ساختار و نقدینگی لحاظ کند (مثلاً نقاط نقدینگی سشن قبلی را مشخص کند).</li>
+        </ul>
+
+        <h4>📌 ۱۰. مدیریت خطا و داده‌های ناقص</h4>
+        <ul>
+            <li><strong>چالش:</strong> اگر به هر دلیلی کندل‌ها خوانده نشوند، داده‌ها ناقص باشند یا Spread غیرعادی باشد.</li>
+            <li><strong>راه‌حل:</strong> یک <strong>try-catch</strong> جامع در تمام لایه‌ها. در صورت بروز خطا، سیستم هیچ وقت حدس نمی‌زند و مستقیماً خروجی <strong>WAIT</strong> یا <strong>DATA ERROR</strong> را نمایش می‌دهد.</li>
+        </ul>
+    </div>
+
+    <!-- ==================== SECTION 11 ==================== -->
+    <h2 id="sec11">۱۱. نکات امنیتی، عملکرد و بهینه‌سازی</h2>
+    <div class="grid-2">
+        <div class="card">
+            <h4>🔒 امنیت (Manifest V3)</h4>
+            <ul>
+                <li>استفاده از <strong>CSP (Content Security Policy)</strong> محدودکننده.</li>
+                <li>عدم استفاده از <code>eval()</code> یا توابع مشابه.</li>
+                <li>ذخیره‌سازی داده‌ها در <strong>IndexedDB</strong> (نه localStorage برای داده‌های حجیم).</li>
+                <li>درخواست حداقل مجوزهای ممکن (فقط <code>activeTab</code> و <code>storage</code>).</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h4>⚡ بهینه‌سازی عملکرد</h4>
+            <ul>
+                <li>استفاده از <strong>Debounce</strong> و <strong>Throttle</strong> برای رویدادهای مکرر (اسکرول، تغییر سایز).</li>
+                <li>مدیریت دقیق <strong>Event Listener</strong>ها برای جلوگیری از Memory Leak.</li>
+                <li>پاک‌سازی خودکار المان‌های اضافی از DOM پس از ۸ ساعت.</li>
+                <li>ذخیره‌سازی تاریخچه با <strong>IndexedDB</strong> و بازیابی فقط داده‌های مورد نیاز برای نمایش.</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h4>📦 ساختار پوشه‌های پیشنهادی</h4>
+            <div class="code-block" style="direction:ltr; text-align:left; font-size:0.8rem;">
+/saadat-trend-pro
+├── manifest.json
+├── background/
+│   └── service-worker.js
+├── content/
+│   ├── chart-reader.js
+│   ├── candle-engine.js
+│   └── chart-overlay.js
+├── analysis/
+│   ├── market-structure.js
+│   ├── support-resistance.js
+│   ├── trendline.js
+│   ├── liquidity.js
+│   ├── fvg.js
+│   ├── order-block.js
+│   ├── price-action.js
+│   ├── moving-average.js
+│   ├── round-number.js
+│   └── mtf-engine.js
+├── signal/
+│   ├── scoring-engine.js
+│   ├── validation-engine.js
+│   └── signal-engine.js
+├── performance/
+│   ├── result-engine.js
+│   ├── statistics-engine.js
+│   ├── adaptive-engine.js
+│   └── backtest-engine.js
+├── ui/
+│   ├── popup.html / popup.js
+│   ├── dashboard.html / dashboard.js
+│   └── settings.html / settings.js
+└── storage/
+    └── database.js
+            </div>
+        </div>
+        <div class="card">
+            <h4>🧪 تست و اعتبارسنجی</h4>
+            <ul>
+                <li>تست واحد (Unit Test) برای هر موتور (مثلاً محاسبه FVG یا تشخیص همر).</li>
+                <li>تست یکپارچگی (Integration Test) برای فرآیند کامل از داده تا خروجی.</li>
+                <li>بررسی دقیق <strong>No Look-Ahead Bias</strong> در بک‌تست: شبیه‌سازی لحظه‌به‌لحظه قیمت.</li>
+                <li>تست بر روی چندین جفت‌ارز و تایم‌فریم مختلف برای اطمینان از پایداری.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ==================== FINAL ==================== -->
+    <hr>
+    <div class="highlight-box" style="text-align:center; font-size:1.1rem;">
+        <strong>🎯 هدف نهایی سیستم:</strong><br>
+        «این ستاپ بر اساس قوانین سیستم، امتیاز و کیفیت کافی برای صدور سیگنال دارد.»<br>
+        <span style="color:var(--text-dim);">سپس نتیجه واقعی ثبت می‌شود تا بر اساس داده‌های واقعی، استراتژی بهینه گردد.</span>
+    </div>
+
+    <div class="important-rule" style="text-align:center;">
+        <strong>🚨 حالت کاری نهایی:</strong> SIGNAL ONLY — NO AUTO TRADING
+    </div>
+
+    <div class="footer-note">
+        <p>این پرامپت بر اساس مستندات <strong>SAADAT TREND PRO</strong> (نسخه STP v1.0) تهیه شده و تمامی نکات فنی، چالش‌های پیاده‌سازی و الزامات معماری را پوشش می‌دهد.</p>
+        <p style="margin-top:5px;">توسعه‌ی موفقیت‌آمیز این افزونه نیازمند رعایت دقیق قوانین <strong>بدون بازنقاشی</strong> و <strong>کیفیت بر کمیت</strong> همراه با بهینه‌سازی‌های سطح بالا است.</p>
+    </div>
+
+</div>
+</body>
+</html>
